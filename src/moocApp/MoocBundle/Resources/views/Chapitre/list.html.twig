@@ -1,0 +1,28 @@
+{% extends "::base.html.twig " %}
+{% block hn %}
+<h1>Liste des Chapitres</h1>
+<table border='2' >
+    <tr>
+        <th>Id</th>
+        <th>Nom</th>
+        <th>Description</th>
+        <th>Cours</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+
+    </tr>
+{% for c in chapitre %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.nom}}</td>
+        <td>{{c.description}}</td>
+       <td>{{c.cours.id}}</td>
+        <td><a href="{{path("pi_chapitre_sup",{'id':c.id})}}">supprimer</a></td>
+        <td><a href="{{path("pi_chapitre_mod",{'id':c.id})}}">modifier</a></td>
+    </tr> 
+{% endfor %}
+</table>
+<a href="{{ path('pi_chapitre_ajout')}}">Ajouter Chapitre</a>
+{%endblock%}
+
+

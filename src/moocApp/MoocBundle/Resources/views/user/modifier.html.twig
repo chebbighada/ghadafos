@@ -1,0 +1,54 @@
+{% extends "PiTdocBundle:user:inedexClient.html.twig" %}
+
+{% block body %}
+<form method='POST'></p>
+
+    
+    <div class="container panel-group">
+
+            
+                <div class="row featurebox panel panel-success" >
+                    
+                    <div class="panel-title ">
+                        <h1 class="text-center"><strong>Modifier mon compte</strong></h1>
+                    </div>
+
+                    <div class=" panel-body">
+
+                        <div class="row ">
+                            <center><div class=" col-md-5 "><span class="h4">Nom</span> : </div>
+                                <div class=" col-md-5"><span class="h4"><input type="text" name="nom"/></span> </div>
+                            </center>
+
+
+                        </div>
+                        </br>
+                        <div class="row">
+                            <center><div class=" col-md-5"><span class="h4">Prenom</span> : </div>
+                                <div class=" col-md-5"><span class="h4"><input type="text" name="prenom"/></span> </div></center>
+                            
+                            
+                        </div>
+                        </br>
+                        <div class="row">
+                            <center><div class=" col-md-5"><span class="h4">Mot de passe</span> : </div>
+                                <div class=" col-md-5"><span class="h4"><input type="text" name="pwd"/></span> </div></center>
+                            
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div>
+                            <div class="panel-footer  text-center">
+                                
+                                <strong><input type="submit" value="Valider" class="btn btn-success"/></strong>
+                                            
+                    </div>
+                </div>
+                    </div> 
+           
+        
+    </div>
+</form>
+{% endblock %}

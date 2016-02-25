@@ -1,0 +1,137 @@
+pidevmooc_homepage:
+    path:     /hello
+    defaults: { _controller: MoocBundle:Default:index }
+pidevmooc_course:
+    path:     /course  
+    defaults: { _controller: MoocBundle:Default:course }   
+pidevmooc_aboutus:
+    path:     /aboutus
+    defaults: { _controller: MoocBundle:Default:aboutus }
+pidevmooc_contactus:
+    path:     /contactus
+    defaults: { _controller: MoocBundle:Default:contactus }
+pidevmooc_inscription:
+    path:     /inscription
+    defaults: { _controller: MoocBundle:Default:inscription }
+
+
+    
+ 
+    
+    
+    
+dashboard:
+    path:     /admin/dash
+    defaults: { _controller: MoocBundle:Default:dash }
+
+    
+choix_admin_compte:
+    path:     /admin/choix_admin_compte/{choix}/{id}
+    defaults: { _controller: MoocBundle:Admin:choixAdminCompte }
+choix_admin_compte:
+    path:     /admin/choix_admin_compte/{choix}/{id}
+    defaults: { _controller: MoocBundle:Admin:choixAdminCompte }  
+    
+    
+    
+afficher_compte_admin:
+    path:     /admin/afficherCompte
+    defaults: { _controller: MoocBundle:Admin:afficherCompteDash}
+affiche_detail_compte:
+    path:     /admin/detailCompte/{id}
+    defaults: { _controller: MoocBundle:Admin:aficherDetailCompte }  
+
+
+rechercher_compte:
+    path:     /admin/recherche
+    defaults: { _controller: MoocBundle:Admin:recherche }   
+supp_compte:
+    path:     /admin/supprimer/{id}
+    defaults: { _controller: MoocBundle:Admin:supprimer }   
+    
+    
+    
+
+
+index_Apprenant:
+    path:     /apprenant/home
+    defaults: { _controller: MoocBundle:Default:indexA }
+
+index_Organisme:
+    path:     /organisme/home
+    defaults: { _controller: MoocBundle:Default:indexO }
+afficher_trad:
+    path:     /afficher_trad
+    defaults: { _controller: MoocBundle:Default:afficher} 
+detail_client:
+    path:     /detail
+    defaults: { _controller: MoocBundle:Default:detailClient}
+modifier:
+    path:     /modifier/{id}
+    defaults: { _controller: MoocBundle:Default:modifierApprenant}
+    
+
+cher:
+    path:     /admin/recherche
+    defaults: { _controller: MoocBundle:Admin:recherche }   
+    
+    
+    
+    #//////////////////MAil\\\\\\\\\\\\\\
+my_app_mail_succ:
+    path: /succ
+    defaults: { _controller: MoocBundle:Mail:index }
+my_app_mail_form:
+    path: /mail
+    defaults: { _controller: MoocBundle:Mail:new }
+my_app_mail_sendpage:
+    path: /sendmail
+    defaults: { _controller: MoocBundle:Mail:sendMail }
+    
+ 
+    #//////erreuur////////////
+    
+erreur:
+    path:     /erreur
+    defaults: { _controller: MoocBundle:Default:erreur } 
+
+ #//////mouna////////////
+ 
+pi_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MoocBundle:Pagination:index }
+    
+pi_cour_list:
+    path:     /listcour
+    defaults: { _controller: MoocBundle:Cours:listcour }
+pi_chapitre_list:
+    path:     /listchapitre
+    defaults: { _controller: MoocBundle:Chapitre:listchapitre }
+pi_cours_ajout:
+    path:     /ajoutcours
+    defaults: { _controller: MoocBundle:Cours:ajoutcour }
+pi_cours_recherche:
+    path:     /recherchecours
+    defaults: { _controller: MoocBundle:Cours:Recherche }
+pi_chapitre_ajout:
+    path:     /ajoutchapitre
+    defaults: { _controller: MoocBundle:Chapitre:ajoutchapitre }
+pi_cours_sup:
+    path:     /supprimer/{id}
+    defaults: { _controller: MoocBundle:Cours:supprimercours }
+pi_chapitre_sup:
+    path:     /supprimerchapitre/{id}
+    defaults: { _controller: MoocBundle:Chapitre:supprimerchapitre }
+pi_cours_mod:
+    path:     /modifier/{id}
+    defaults: { _controller: MoocBundle:Cours:modifercours }
+pi_chapitre_mod:
+    path:     /modifierch/{id}
+    defaults: { _controller: MoocBundle:Chapitre:modiferchapitre }
+pi_graphe:
+    path:     /chartLine
+    defaults: { _controller: piBundle:Graphe:chartLine }
+ 
+test:
+    path:     /test
+    defaults: { _controller: MoocBundle:Default:test }

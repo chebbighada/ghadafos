@@ -1,0 +1,15 @@
+{% extends "::base.html.twig " %}
+{% block hn %}
+    <form method="post" action=''>
+<table>
+    <tr><td>Titre</td><td>{{form_widget(f.titre)}}</td></tr>
+    <tr><td>Description</td><td>{{form_widget(f.description)}}</td></tr>
+    <tr><td>DateDebut</td><td>{{form_widget(f.dateDebut)}}</td></tr>
+    <tr><td>DateFin</td><td>{{form_widget(f.dateFin)}}</td></tr>
+    <tr><td>Difficulte</td><td>{{form_widget(f.difficulte)}}</td></tr>
+      <tr><td>TestFinale</td><td>{{form_widget(f.testFinale)}}</td></tr>
+</table>
+{{form_rest(f)}}
+</form>
+{%endblock%}
+

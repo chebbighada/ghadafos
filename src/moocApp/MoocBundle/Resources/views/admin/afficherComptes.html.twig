@@ -1,0 +1,68 @@
+{% extends "MoocBundle:user:tables.html.twig " %}
+{% block affichage %}
+    <div class="main_container" id="dashboard_page">
+
+        <div class="row-fluid">
+            <div class="widget widget-padding span12">
+                <div class="widget-header">
+                    <i class="icon-group"></i>
+                    <h2>Utilisateur</h2>
+
+                </div>  
+                <div class="widget-body">
+                    <table class="normal-table m-bot-30" cellspacing='0'>
+                        <thead>
+                            <tr>
+                                <th class="first">Nom d'utlisateur</th>
+                                <th>Role</th>
+                                <th>adresse</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for compte in comptes%}
+                                {% if compte.roles[0]!='ROLE_ADMIN'%}
+                                    <tr>
+                                        <td>{{compte.username}}</td> 
+                                        {%if compte.roles[0]=='ROLE_APPRENANT' %}
+                                            <td>APPREANT</td>
+                                        {% elseif compte.roles[0]=='ROLE_ORGANISME'  %}
+                                            <td>ORGANISME</td>
+                                        {%endif%}
+                                     
+                                        <td> {{compte.adresse}} </td>
+                                        
+                                            <td> <a href="{{path('supp_compte',{'id':compte.id})}}}" target="_blank">supprimer</a></td>
+                                    </tr>
+                                 
+                                {%endif%}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div> <!-- /widget-body -->
+            </div> <!-- /widget -->
+        </div> <!-- /row-fluid -->
+        <div class="row-fluid">
+            <form action="{{path('cher')}}" methode="Post">
+                <table>
+                    <tr>
+                        <td> <label>Login</label></td>
+                        <td><input type="text" name="login"/></td>
+                    </tr>
+
+                    
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="chercher"/></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+{%endblock%}

@@ -1,0 +1,76 @@
+{% extends "PiTdocBundle:user:dashbord.html.twig " %}
+{% block body %}
+    <div class="main_container">
+
+        <div class="row-fluid">
+            <div class="widget widget-padding span12">
+                <div class="widget-header">
+                    <i class="icon-group"></i>
+                    <h5>Offres</h5>
+
+                </div>  
+                <div class="widget-body">
+                    <table  class="table table-striped table-bordered dataTable">
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Mode</th>
+                                <th>Date debut</th>
+                                <th>Langue source</th>
+                                <th>Traducteur</th>
+                                <th>status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for offre in offres%}
+
+                                <tr>
+                                    <td>{{offre.client.username}}</td>
+                                    <td>{{offre.mode}}</td>
+
+                                    <td>{{offre.dateDebut|date('D d/m/y')}}</td>
+                                    <td>{{offre.document.langueSrc}}</td>   
+                                    <td>{{offre.traducteur.username}}</td>
+                                    {% if offre.etat=='non valide'%}
+                                        <td><span class="label label-danger">{{offre.etat}}</span></td>
+                                        {% elseif offre.etat=='valide'%}
+                                        <td><span class="label label-warning">{{offre.etat}}</span></td>
+                                        {% elseif offre.etat=='en cours'%}
+                                        <td><span class="label label-success">{{offre.etat}}</span></td>
+                                        {% elseif offre.etat=='fini'%}
+                                        <td><span class="label label-default">{{offre.etat}}</span></td>
+                                        {%endif%}     
+
+                                    {% if offre.etat=='non valide'%}
+                                        <td>
+                                            <a href="{{path('choix_admin_offre',{'choix':1,'id':offre.id})}}"><i class="icon icon-thumbs-up" style="margin-right: 10px"></i></a>
+                                            <a href="{{path('choix_admin_offre',{'choix':2,'id':offre.id})}}"><i class="icon icon-remove" style="margin-right: 10px"></i></a>
+                                            <a href="{{path('affiche_detail_offre',{'id':offre.id})}}"><i class="icon icon-book"></i></a>
+                                        </td>
+                                    {% elseif offre.etat=='valide'%}
+                                        <td><a href="{{path('affiche_detail_offre',{'id':offre.id})}}"><i class="icon icon-book"></i></a>
+                                            <a href="{{path('choix_admin_offre',{'choix':2,'id':offre.id})}}"><i class="icon icon-remove" style="margin-right: 10px"></i></a>
+                                        </td>
+                                    {% elseif offre.etat=='en cours'%}
+                                        <td> <a href="{{path('affiche_detail_offre',{'id':offre.id})}}"><i class="icon icon-book"></i></a></td>
+                                            {% elseif offre.etat=='fini'%}
+                                        <td> <a href="{{path('affiche_detail_offre',{'id':offre.id})}}"><i class="icon icon-book"></i></a></td>
+
+                                    {%endif%} 
+
+                                </tr>
+
+                            {% endfor %} 
+                        </tbody>
+                    </table>
+                </div> <!-- /widget-body -->
+            </div> <!-- /widget -->
+        </div> <!-- /row-fluid -->
+    </div>
+
+
+
+
+{%endblock%}
+

@@ -1,0 +1,17 @@
+services:
+  # [...] Vos autres services
+  redirect.after.login:
+    class: moocApp\MoocBundle\Redirection\AfterLoginRedirection
+    arguments: [@router]
+  redirect.after.logout:
+    class: moocApp\MoocBundle\Redirection\AfterLogoutRedirection
+    arguments: [@router, @security.context]
+  redirect.after.denied :
+    class: moocApp\MoocBundle\Redirection\AfterDeniedRedirection
+    arguments: [@router ,@security.context]
+
+  User.registration.form:
+        class: moocApp\MoocBundle\Form\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: user_registration }

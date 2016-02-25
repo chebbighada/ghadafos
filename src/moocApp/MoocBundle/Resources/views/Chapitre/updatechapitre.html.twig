@@ -1,0 +1,13 @@
+{% extends "::base.html.twig " %}
+{% block hn %}
+
+    <form method="post" action=''>
+<table>
+    <tr><td>Nom</td><td>{{form_widget(f.nom)}}</td></tr>
+    <tr><td>Description</td><td>{{form_widget(f.description)}}</td></tr>
+    <tr><td>Cours</td><td>{{form_widget(f.cours)}}</td></tr>
+    
+</table>
+{{form_rest(f)}}
+</form>
+{%endblock%}

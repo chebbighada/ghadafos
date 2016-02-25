@@ -1,0 +1,47 @@
+{% extends "::base.html.twig " %}
+{% block hn %}
+
+
+<h1>Liste des Cours</h1>
+<table border='2' >
+    <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>DateDebut</th>
+        <th>DateFin</th>
+        <th>Difficulte</th>
+        <th>TestFinale</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+
+    </tr>
+{% for c in cours %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.titre}}</td>
+        <td>{{c.description}}</td>
+        <td>{{c.dateDebut|date}}</td>
+        <td>{{c.dateFin|date}}</td>
+        <td>{{c.difficulte}}</td>
+        <td>{{c.testFinale.id}}</td>
+        <td><a href="{{path("pi_cours_sup",{'id':c.id})}}">supprimer</a></td>
+        <td><a href="{{path("pi_cours_mod",{'id':c.id})}}">modifier</a></td>
+    </tr> 
+{% endfor %}
+
+
+</table>
+
+<a href="{{ path('pi_cours_ajout')}}">Ajouter Cours</a>
+
+<form method="POST"  action="">
+    <input type="text" name="search"/>
+    <input type="submit" value="chercher"/>
+</form>
+<form method="POST"  action="pi_cours_ajout">
+    <input type="submit" value="ajouter"/>
+</form>
+
+{%endblock%}
+

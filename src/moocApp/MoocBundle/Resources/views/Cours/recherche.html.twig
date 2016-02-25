@@ -1,0 +1,34 @@
+{% extends "::base.html.twig " %}
+{% block hn %}
+<h1>Recherche Liste des Cours </h1>
+<form method="POST"  action="">
+    rechercher : <input type="text" name="search"/>
+    <input type="submit" value="chercher"/>
+</form>
+<table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>DateDebut</th>
+        <th>DateFin</th>
+        <th>Difficulte</th>
+        <th>TestFinale</th>
+        
+
+    </tr>
+    
+    {% for i in Cours%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.titre}}</td>
+        <td>{{i.description}}</td>
+        <td>{{i.dateDebut|date}}</td>
+        <td>{{i.dateFin|date}}</td>
+        <td>{{i.difficulte}}</td>
+        <td>{{i.testFinale.id}}</td>
+       
+          </tr>
+    {% endfor %}
+</table>
+    {%endblock%}

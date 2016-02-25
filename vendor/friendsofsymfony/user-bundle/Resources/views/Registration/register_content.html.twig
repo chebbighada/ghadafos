@@ -1,0 +1,46 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+
+<head>
+
+    <!-- Basics -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Login</title>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css1/reset.css">
+    <link rel="stylesheet" href="css1/animate.css">
+    <link rel="stylesheet" href="css1/styles.css">
+
+</head>
+
+<!-- Main HTML -->
+
+<body>
+
+    <!-- Begin Page Content -->
+
+
+
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_widget(form) }}
+        <div>
+            <input type="submit" value="{{ 'registration.submit'|trans }}" />
+        </div>
+        {{ form_end(form) }}
+
+
+    
+
+
+    <!-- End Page Content -->
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+
+{% extends "::base.html.twig " %}
+{% block hn %}
+    <table>
+<tr>
+{# sorting of properties based on query components #}
+    <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+    <th{% if pagination.isSorted('a.Nom') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Nom', 'a.nom') }}</th>
+     <th{% if pagination.isSorted('a.Description') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Description', 'a.description') }}</th>
+     <th{% if pagination.isSorted('a.Cours') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Cours', 'a.cours.id') }}</th>
+</tr>
+<h1>Liste des Chapitres</h1>
+{# table body #}
+{% for Chapitre in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>
+    <td>{{ Chapitre.id }}</td>
+    <td>{{ Chapitre.nom }}</td>
+    <td>{{ Chapitre.description}}</td>
+     <td>{{ Chapitre.cours.id}}</td>
+   
+</tr>
+{% endfor %}
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>{# empty Twig template #}
+{%endblock%}
